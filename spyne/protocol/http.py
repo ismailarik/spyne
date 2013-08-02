@@ -169,6 +169,9 @@ class HttpRpc(FlatDictDocument):
                         l.append(v.coded_value)
                         ctx.in_header_doc[k] = l
 
+        for k,arr in ctx.in_body_doc.items():
+            ctx.in_body_doc[k] = [v for v in arr if len(v) > 0]
+
         logger.debug('\theader : %r' % (ctx.in_header_doc))
         logger.debug('\tbody   : %r' % (ctx.in_body_doc))
 

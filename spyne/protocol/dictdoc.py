@@ -377,7 +377,7 @@ class FlatDictDocument(DictDocument):
                     _v.extend(value)
                 logger.debug("\tset array   %r(%r) = %r" %
                                                     (member.path, pkey, value))
-            else:
+            elif len(value) > 0:
                 setattr(cinst, member.path[-1], value[0])
                 logger.debug("\tset default %r(%r) = %r" %
                                                     (member.path, pkey, value))
